@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="row pt-md-5 ml-2 mr-2" id="d1">
+
+        <div class="col-md-4 d2  pt-md-5 mt-md-5 col-0"></div>
+
+
+        <div class=" col-md-4  d2  p-md-5 mt-md-5 mt-5 p-5 bg-warning">
+            <form >
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Username</label>
+                    <input type="text" class="form-control" id="i1" aria-describedby="emailHelp"
+                        placeholder="Enter name">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                        else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="i2" placeholder="Password">
+                </div>
+
+                <button type="button" class="btn btn-primary mt-3" onclick="userValidation()">Login</button>
+            </form>
+        </div>
+        <div class="col-md-4 d2 pt-md-5 mt-md-5 col-0"></div>
+
+    </div>
+    <script>
+        var user_info = [{ name: "paras", password: "1311" }]     /* user data in per object */
+    
+        function userValidation() {
+            var user_name = document.getElementById("i1").value
+            var user_pass = document.getElementById("i2").value
+           
+
+
+            for (i = 0; i < user_info.length; i++) {
+
+                if (user_info[i]["name"] == user_name) {
+                    if (user_info[i]["password"] == user_pass) {
+                      window.open("QuizStart.html","_blank")
+
+                    } else {
+                        console.log("user password")
+                    }
+
+                } else {
+                    console.log("invalid user name")
+                }
+            }
+
+        }
+
+
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

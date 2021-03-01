@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        /*  #d1 {
+            background-color: red;
+
+        } */
+
+        #col2 {
+            background-color: whitesmoke;
+            border: 2px solid #000000;
+            box-shadow: 5px 5px 10px black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container mt-md-5 p-md-5 p-sm-2 ">
+        <div class="row  m-md-5 p-md-5 mt-2 p-sm-2">
+            <div class="col-md-2 col-0 "></div>
+            <div class="col-md-8 col-12 mt-md-2 mb-md-5 mt-2 pt-md-2 pb-md-2">
+                <!-- 
+                <div class="d-flex flex-column " id="subm">
+                    <div class=""><h1 id="h1"></h1></div>
+                    <div class=""></div>
+                </div> -->
+
+                <div class=" d-flex flex-column " id="d1">
+
+
+
+                    <div id="col2" class="pt-md-4 pb-md-4 pl-md-4 sub">
+
+
+
+                        <div class=""><label>question</label></div>
+
+                        <div class=" mt-2  "><input type="radio" name="ques" value="1" onclick="test1()"
+                                class="mr-1 mr-md-4"><label></label></div>
+                        <div class=" mt-2 "><input type="radio" name="ques" value="2" onclick="test2()"
+                                class="mr-1 mr-md-4"><label></label></div>
+                        <div class=" mt-2 "><input type="radio" name="ques" value="3" onclick="test3()"
+                                class="mr-1 mr-md-4"><label></label></div>
+                        <div class=" mt-2 "><input type="radio" name="ques" value="4" onclick="test4()"
+                                class="mr-1 mr-md-4"><label></label></div>
+                    </div>
+
+                    <div class=" mt-3 d-flex flex-row justify-content-start sub"><button id="b1" type="button"
+                            class="bnt btn-success btn-lg " onclick="input()">next ></button>
+                        <button id="b2" type="button" class="bnt btn-success  btn-lg" onclick="submit()">submit</button>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-md-2 col-0 "></div>
+        </div>
+    </div>
+
+
+
+    <script>
+
+        document.getElementById("b2").style.display = "none"
+        document.getElementById("b1").style.display = "none"
+        var ques = [{ question: { q: "What does HTML stand for?", o: { opt_1: " Hyperlinks and Text Markup Language", opt_2: " Home Tool Markup Language", opt_3: " Hyper Text Markup Language", opt_4: "Hyper Language" } } }, { question: { q: "Inside which HTML element do we put the JavaScript?", o: { opt_1: " js", opt_2: " javascript", opt_3: " scripting", opt_4: "script" } } }, { question: { q: "What is the correct JavaScript syntax to change the content of the HTML element below?", o: { opt_1: 'document.getElement("p").innerHTML = "Hello World!";', opt_2: ' document.getElementById("demo").innerHTML = "Hello World!";', opt_3: ' #demo.innerHTML = "Hello World!";', opt_4: ' document.getElementByName("p").innerHTML = "Hello World!";' } } }, { question: { q: "Where is the correct place to insert a JavaScript?", o: { opt_1: "The &lt;body&gt; section", opt_2: "Both the &lt;head&gt; section and the &lt;body&gt; section are correct", opt_3: " The &lt;head&gt; section", opt_4: "The &lt;html&gt; section" } } }]
+
+        var ques_ans = ["3", "4", "2", "2"]
+        var user_ans = []
+        var input_fields = document.getElementsByTagName("input")
+        var label_fields = document.getElementsByTagName("label")
+
+        var input_value = []
+        var ques_aary = 0
+        var count = 0
+        function test1() {
+            input_value.push(input_fields[0].value)
+            document.getElementById("b1").style.display = "inline"
+            if (ques_aary == ques.length - 1) {
+
+                document.getElementById("b1").style.display = "none"
+                document.getElementById("b2").style.display = "inline"
+
+
+            }
+        }
+        function test2() {
+            input_value.push(input_fields[1].value)
+            document.getElementById("b1").style.display = "inline"
+            if (ques_aary == ques.length - 1) {
+
+                document.getElementById("b1").style.display = "none"
+                document.getElementById("b2").style.display = "inline"
+
+
+            }
+        }
+        function test3() {
+            input_value.push(input_fields[2].value)
+            document.getElementById("b1").style.display = "inline"
+            if (ques_aary == ques.length - 1) {
+
+                document.getElementById("b1").style.display = "none"
+                document.getElementById("b2").style.display = "inline"
+
+
+            }
+        }
+        function test4() {
+            input_value.push(input_fields[3].value)
+            document.getElementById("b1").style.display = "inline"
+            if (ques_aary == ques.length - 1) {
+
+                document.getElementById("b1").style.display = "none"
+                document.getElementById("b2").style.display = "inline"
+
+
+            }
+        }
+
+        label_fields[0].innerHTML = ques[ques_aary]["question"]["q"]
+        label_fields[1].innerHTML = ques[ques_aary]["question"]["o"]["opt_1"]
+        label_fields[2].innerHTML = ques[ques_aary]["question"]["o"]["opt_2"]
+        label_fields[3].innerHTML = ques[ques_aary]["question"]["o"]["opt_3"]
+        label_fields[4].innerHTML = ques[ques_aary]["question"]["o"]["opt_4"]
+        function input() {
+
+            user_ans.push(input_value[input_value.length - 1])
+            ques_aary++
+            if (ques_aary < ques.length) {
+
+
+
+                input_fields[0].checked = false
+                input_fields[1].checked = false
+                input_fields[2].checked = false
+                input_fields[3].checked = false
+
+                label_fields[0].innerHTML = ques[ques_aary]["question"]["q"]
+                label_fields[1].innerHTML = ques[ques_aary]["question"]["o"]["opt_1"]
+                label_fields[2].innerHTML = ques[ques_aary]["question"]["o"]["opt_2"]
+                label_fields[3].innerHTML = ques[ques_aary]["question"]["o"]["opt_3"]
+                label_fields[4].innerHTML = ques[ques_aary]["question"]["o"]["opt_4"]
+            }
+
+            if (ques_aary == ques.length - 1) {
+
+
+                document.getElementById("b2").style.display = "none"
+
+            }
+
+            document.getElementById("b1").style.display = "none"
+
+
+        }
+
+        function submit() {
+            user_ans.push(input_value[input_value.length - 1])
+
+
+            for (i = 0; i < user_ans.length; i++) {
+                if (ques_ans[i] === user_ans[i]) {
+                    count = count + 1
+                }
+            }
+
+            let div_element1 = document.getElementById("d1")
+
+            div_element1.innerHTML = "<div id='p1'><h3 id='h3' class='mt-5'><h3><h1 id='h1' class='mt-5 mb-5'></h1><div>"
+            document.getElementById("h3").innerHTML = "your score  :  " + count + " / " + user_ans.length
+            if (count > ques.length / 2) {
+
+                function setj() {
+                    document.getElementById("h1").innerHTML = "you win !!"
+                    document.getElementById("h1").style.color = "green"
+                }
+                setTimeout(setj, 500)
+
+            } else {
+                function seti() {
+                    document.getElementById("h1").innerHTML = "you lost !!"
+                    document.getElementById("h1").style.color = "red"
+                }
+
+                setTimeout(seti, 500)
+            }
+
+            div_element1.style.textAlign = "center"
+            div_element1.style.boxShadow = "5px 5px 10px black"
+            div_element1.style.border = "2px solid gray"
+
+
+
+        }
+
+
+
+
+
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
